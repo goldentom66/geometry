@@ -1,2 +1,2 @@
 # geometry
-Test for Mathspace
+Test for React + Redux + Webpack
