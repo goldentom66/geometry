@@ -11,7 +11,7 @@ class Subtopic extends Component {
     const hasSubtopic = this.props.currentSubtopic && this.props.currentSubtopic.index
     const hasCompleted = this.props.currentSubtopic && this.props.currentSubtopic.completed
     const subtopicText = <div className='subtopic-text'>{this.props.currentSubtopic.index}. {this.props.currentSubtopic.title}</div>
-    const subtopicComplete = <div className='subtopic-complete'><div className='subtopic-img'><img src='images/tick-big.png' /></div></div>
+    const subtopicComplete = <div className='subtopic-complete'><div className='subtopic-img'><img src='images/tick-big.png' alt='completed' /></div></div>
     
 		return (
 			<div className='subtopic'>

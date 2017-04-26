@@ -8,7 +8,7 @@ class User extends Component {
     
 		return (
 			<div className='user'>
-        <img src={userAvatar} title={this.props.user.username} />
+        <img src={userAvatar} title={this.props.user.username} alt='User Avatar' />
         <div className={this.props.user.hasUpdate ? 'updated' : ''}></div>
       </div>
 		)
