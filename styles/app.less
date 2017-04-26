@@ -183,6 +183,14 @@ nav {
   }
 }
 
+.triangle (@width, @color) {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: @width/6 @width 0 0;
+  border-color: @color transparent transparent transparent;
+}
+      
 .subtopic {
   height: @subtopic-height;
   margin: 20px 0px 35px 0px;
@@ -198,17 +206,15 @@ nav {
     box-shadow: 0 0 0 2px @grey;
     border-radius: 2px;
     border-left: none;
+    overflow: hidden;
     .top {
       background-color: @light-purple;
       height: (@subtopic-height - 40) / 2 + 5;
       border-radius: 0 2px 0 0;
-      &:after {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 25px;
-        transform: skewX(25deg); 
-      }
+    }
+    .decorate {
+      .triangle(150px, @light-purple);
+      margin-top: -1px;
     }
   }
   
@@ -221,7 +227,7 @@ nav {
     height: @subtopic-height;
     box-shadow: 0 0 0 2px @grey;
     border-radius: 2px;
-    
+    overflow: hidden;
     .top {
       color: @white;
       border-radius: 2px 2px 0 0;
@@ -241,9 +247,14 @@ nav {
       }
     }
     
+    .decorate {
+      .triangle(360px, @light-purple);
+      margin-top: -1px;
+    }
+    
     .bottom {
       background-color: @white;
-      padding-top: 20px;
+      padding-top: 25px;
       .btn-pill {
         padding-top: 10px;
         width: 120px;
@@ -265,10 +276,15 @@ nav {
     box-shadow: 0 0 0 2px @grey;
     border-radius: 2px;
     border-right: none;
+    overflow: hidden;
     .top {
       background-color: @light-purple;
       height: (@subtopic-height - 30) / 2 + 30;
       border-radius: 2px 0 0 0;
+    }
+    .decorate {
+      .triangle(150px, @light-purple);
+      margin-top: -1px;
     }
   }
 }

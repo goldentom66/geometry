@@ -17,12 +17,14 @@ class Subtopic extends Component {
 			<div className='subtopic'>
         <div className='left'>
           <div className='top'></div>
+          <div className='decorate'></div>
         </div>
         <div className='middle'>
           <div className='top'>
             {hasSubtopic && subtopicText}
             {hasCompleted && subtopicComplete}
           </div>
+          <div className='decorate'></div>
           <div className='bottom'>
           {!hasCompleted &&
             <div className='btn btn-primary btn-pill'>Let's Go</div>
@@ -31,6 +33,7 @@ class Subtopic extends Component {
         </div>
         <div className='right'>
           <div className='top'></div>
+          <div className='decorate'></div>
         </div>
       </div>
 		)
