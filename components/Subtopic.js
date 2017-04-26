@@ -4,14 +4,12 @@ import React, { Component } from 'react'
 
 class Subtopic extends Component {
   handleClick() {
-    this.props.actions.completeSubtopic(this.props.currentSubtopic)
+    this.props.actions.completeSubtopic(this.props.subtopic.index)
   }
   
 	render() {
-    const hasSubtopic = this.props.currentSubtopic && this.props.currentSubtopic.index
-    const hasCompleted = this.props.currentSubtopic && this.props.currentSubtopic.completed
-    const subtopicText = <div className='subtopic-text'>{this.props.currentSubtopic.index}. {this.props.currentSubtopic.title}</div>
-    const subtopicComplete = <div className='subtopic-complete'><div className='subtopic-img'><img src='images/tick-big.png' alt='completed' /></div></div>
+    const hasSubtopic = this.props.subtopic && this.props.subtopic.index
+    const hasCompleted = this.props.subtopic && this.props.subtopic.completed
     
 		return (
 			<div className='subtopic'>
@@ -21,13 +19,15 @@ class Subtopic extends Component {
         </div>
         <div className='middle'>
           <div className='top'>
-            {hasSubtopic && subtopicText}
-            {hasCompleted && subtopicComplete}
+            {hasSubtopic && 
+            <div className='subtopic-text'>{this.props.subtopic.index}. {this.props.subtopic.title}</div>}
+            {hasCompleted && 
+            <div className='subtopic-complete'><div className='subtopic-img'><img src='images/tick-big.png' alt='completed' /></div></div>}
           </div>
           <div className='decorate'></div>
           <div className='bottom'>
           {!hasCompleted &&
-            <div className='btn btn-primary btn-pill'>Let's Go</div>
+            <div className='btn btn-primary btn-pill' onClick={this.handleClick.bind(this)}>Let's Go</div>
           }
           </div>
         </div>

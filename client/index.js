@@ -21,7 +21,6 @@ let initialState = {
     { index: 8, title: "Revision", completed: false },
     { index: 9, title: "Topic Test", completed: false }
   ],
-  currentSubtopic: { index: 3, title: "Similar Triangles", completed: true },
   user: {
     id: 1,
     username: 'tom.jiang',

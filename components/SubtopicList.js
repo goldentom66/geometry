@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import SubtopicListItem from './SubtopicListItem'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 class SubtopicList extends Component {
 
@@ -12,11 +13,7 @@ class SubtopicList extends Component {
           <ul className='list'>
             {
               this.props.subtopics.map((subtopic) => {
-                  let current = false;
-                  if (this.props.currentSubtopic && subtopic.index === this.props.currentSubtopic.index) {
-                    current = true;
-                  }
-                  return <SubtopicListItem key={subtopic.index} subtopic={subtopic} current={current} actions={this.props.actions} />
+                  return <SubtopicListItem key={subtopic.index} subtopic={subtopic} actions={this.props.actions} />
               })
             }
           </ul>

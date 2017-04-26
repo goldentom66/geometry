@@ -1,17 +1,23 @@
 let actions = {
   
-  selectSubtopic: function(subtopic) {
+  selectSubtopic: function(index) {
     return {
       type: 'SELECT_SUBTOPIC',
-      subtopic: subtopic
+      index: index
     }
   },
   
-  completeSubtopic : function(subtopic) {
+  completeSubtopic : function(index) {
     return {
       type: 'COMPLETE_SUBTOPIC',
-      subtopic: subtopic
+      index: index
     }
+  },
+  
+  moveLeft: function(subtopics) {
+  },
+  
+  moveRight: function(subtopics) {
   }
   
 }

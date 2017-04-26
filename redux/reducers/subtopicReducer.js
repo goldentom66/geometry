@@ -1,12 +1,19 @@
-let subtopicReducer = function(subtopic = {}, action) {
+let subtopicReducer = function(subtopics = {}, action) {
   switch (action.type) {
     case 'SELECT_SUBTOPIC':
-      return action.subtopic;
+      return subtopics.map((subtopic) => {
+        return subtopic.index === action.index 
+          ? Object.assign({}, subtopic, {current: true}) 
+          : Object.assign({}, subtopic, {current: false});
+      });
     case 'COMPLETE_SUBTOPIC':
-      action.subtopic.completed = true;
-      return action.subtopic;
+      return subtopics.map((subtopic) => {
+        return subtopic.index === action.index 
+          ? Object.assign({}, subtopic, {completed: true}) 
+          : subtopic;
+      });
     default: 
-      return subtopic;
+      return subtopics;
   }
 }
 

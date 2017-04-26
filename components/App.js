@@ -12,8 +12,10 @@ import Subtopic from './Subtopic'
 import ViewChoice from './ViewChoice'
 
 class App extends Component {
-
   render() {
+    const currentSubtopic = this.props.subtopics.filter((subtopic) => {
+      return subtopic.current
+    })[0];
     return (
       <div className='container-fluid no-padding'>
         <header>
@@ -25,12 +27,12 @@ class App extends Component {
         </header>
         <nav>
           <div className='row no-margin'>
-            <SubtopicList subtopics={this.props.subtopics} currentSubtopic={this.props.currentSubtopic} actions={this.props.actions} />
+            <SubtopicList subtopics={this.props.subtopics} actions={this.props.actions} />
           </div>
         </nav>
         <main>
           <div className='row no-margin'>
-            <Subtopic currentSubtopic={this.props.currentSubtopic} actions={this.props.actions} />
+            <Subtopic subtopic={currentSubtopic} actions={this.props.actions} />
           </div>
         </main>
         <footer>
