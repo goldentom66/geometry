@@ -1,7 +1,7 @@
 {
   "name": "geometry",
   "version": "1.0.0",
-  "description": "Mathspace Frontend Challenge",
+  "description": "Frontend Challenge",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon server/server.js --ignore components"
