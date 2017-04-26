@@ -8,10 +8,12 @@ class SubtopicListItem extends Component {
   }
   
 	render() {
+    const itemClassName = 'item' + (this.props.current?' current':'') + (this.props.subtopic.completed?' completed':'')
+    
 		return (
-			<div className={this.props.selected?'selected':''} onClick={this.handleSelect.bind(this)} title={this.props.subtopic.title}>
+			<li className={itemClassName} onClick={this.handleSelect.bind(this)} title={this.props.subtopic.title}>
           {this.props.subtopic.index}
-      </div>
+      </li>
 		)
 	}
 }

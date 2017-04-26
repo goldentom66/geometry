@@ -3,7 +3,8 @@ import { render } from 'react-dom'
 import App from '../components/App'
 import configureStore from '../redux/store'
 import { Provider } from 'react-redux'
-import appStyle from '../styles/app.less';
+import lessStyle from '../styles/app.less'
+import bootstrap from 'bootstrap/dist/css/bootstrap.css'
 
 let initialState = {
   topic: {

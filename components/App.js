@@ -15,20 +15,28 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='container-fluid no-padding'>
         <header>
-          <Menu/>
-          <Topic topic={this.props.topic} />
-          <User user={this.props.user} />
+          <div className='row no-margin'>
+            <div className='col-xs-4'><Menu /></div>
+            <div className='col-xs-4'><Topic topic={this.props.topic} /></div>
+            <div className='col-xs-4'><User user={this.props.user} /></div>
+          </div>
         </header>
         <nav>
-          <SubtopicList subtopics={this.props.subtopics} currentSubtopic={this.props.currentSubtopic} actions={this.props.actions} />
+          <div className='row no-margin'>
+            <SubtopicList subtopics={this.props.subtopics} currentSubtopic={this.props.currentSubtopic} actions={this.props.actions} />
+          </div>
         </nav>
         <main>
-          <Subtopic subtopic={this.props.currentSubtopic} />
+          <div className='row no-margin'>
+            <Subtopic currentSubtopic={this.props.currentSubtopic} actions={this.props.actions} />
+          </div>
         </main>
         <footer>
-          <ViewChoice currentView={this.props.currentView}/>
+          <div className='row no-margin'>
+            <ViewChoice currentView={this.props.currentView}/>
+          </div>
         </footer>
       </div>
     )

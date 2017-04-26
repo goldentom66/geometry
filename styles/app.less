@@ -2,9 +2,294 @@
 @blue: #8C88FF;
 @green: #50D2C2;
 @purple: #6563A4;
+@light-purple: #9999FF;
 @white: #FFFFFF;
+@red: #FF0000;
+@grey: #F2F2F2;
+@font-family-base: Helvetica;
+@font-size-base: 13px;
+@subtopic-height: 400px;
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
 
 body {
-	background: @white;
-	font: 400 13px Helvetica;
+	background-color: @white;
+}
+
+header {
+  height: 50px;
+  background-color: @pink;
+  .row {
+    height: 100%;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+}
+
+.menu {
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.topic {
+  text-align: center;
+  color: @white;
+  margin-top: 15px;
+}
+
+.user {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  img {
+    max-width: 30px;
+  }
+  .updated {
+    position: relative;
+    float: right;
+    &:after {
+      content: '';
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      display: block;
+      background-color: @red;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+  }
+}
+
+nav {
+  margin-top: -1px;
+  height: 70px;
+  background-color: @pink;
+  .row {
+    height: 100%;
+    vertical-align: middle;
+    padding-top: 23px;
+  }
+}
+
+.subtopic-list {
+
+  ul.list {
+    font-size: 11px;
+    white-space: nowrap;
+    height: 25px;
+    li {
+      cursor: pointer;
+      display: inline-block;
+      &.item {
+        width: 25px;
+        height: 25px;
+        padding-top: 5px;
+        margin-right: 15px;
+        text-align: center;
+        background-color: @pink;
+        color: @white;
+        border-radius: 50%;
+        border: solid 1px @white;
+        
+        &:first-child {
+          &:before {
+            width: 0px !important;
+          }
+        }
+        
+        &:last-child {
+          &:after {
+            width: 0px !important;
+          }
+        }
+        
+        &:after {
+          content: '';
+          position: absolute;
+          margin-top: 6px;
+          margin-left: 8px;
+          display: inline-block;
+          background-color: @white;
+          width: 16px;
+          height: 1px;
+        }
+        
+        &.completed {
+          background-color: @green;
+          border: solid 1px @green;
+          
+          &:after {
+            background-color: @green;
+          }
+        }
+        
+        &.current {
+          width: 27px;
+          height: 27px;
+          padding-top: 5px;
+          border: solid 2px @pink;
+          box-shadow: 0 0 0 2px @green;
+          &:after {
+            width: 13px;
+            margin-left: 12px;
+          }
+          
+          &:before {
+            content: '';
+            position: absolute;
+            margin-top: 6px;
+            margin-left: -13px;
+            display: inline-block;
+            background-color: @green;
+            width: 2px;
+            height: 1px;
+          }
+
+          &.completed {
+            border: solid 2px @pink;
+            &:after {
+              background-color: @green;
+              width: 17px;
+              margin-left: 8px;
+            }
+            &:before {
+              margin-left: -11px;
+              width: 12px;
+            }
+          }          
+        }
+      }
+    }
+  }
+  
+  .button {
+    width: 15px;
+    height: 15px;
+    .left {
+      background: url('/images/left.png')
+    }
+
+    .right {
+      background: url('/images/right.png')
+    }
+  }
+}
+
+.subtopic {
+  height: @subtopic-height;
+  margin: 20px 0px 35px 0px;
+  background-color: @white;
+  
+  .left {
+    float: left;
+    display: inline-block;
+    position: relative;
+    width: 5%;
+    height: @subtopic-height - 40;
+    margin-top: 20px;
+    box-shadow: 0 0 0 2px @grey;
+    border-radius: 2px;
+    border-left: none;
+    .top {
+      background-color: @light-purple;
+      height: (@subtopic-height - 40) / 2 + 5;
+      border-radius: 0 2px 0 0;
+      &:after {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 25px;
+        transform: skewX(25deg); 
+      }
+    }
+  }
+  
+  .middle {
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: @subtopic-height;
+    box-shadow: 0 0 0 2px @grey;
+    border-radius: 2px;
+    
+    .top {
+      color: @white;
+      border-radius: 2px 2px 0 0;
+      background-color: @light-purple;
+      font-size:20px;
+      height: @subtopic-height / 2 + 20;
+      
+      .subtopic-text {
+        padding: 70px 0 20px 0;
+      }
+     
+      .subtopic-complete {
+        img {
+          background-color: @green;
+          border-radius: 50%;
+        }
+      }
+    }
+    
+    .bottom {
+      background-color: @white;
+      padding-top: 20px;
+      .btn-pill {
+        padding-top: 10px;
+        width: 120px;
+        height: 40px;
+        background-color: @green;
+        border: none;
+        border-radius: 20px;
+      }
+    }
+  }
+  
+  .right {
+    float: right;
+    display: inline-block;
+    position: relative;
+    width: 5%;
+    height: @subtopic-height - 30;
+    margin-top: 10px;
+    box-shadow: 0 0 0 2px @grey;
+    border-radius: 2px;
+    border-right: none;
+    .top {
+      background-color: @light-purple;
+      height: (@subtopic-height - 30) / 2 + 30;
+      border-radius: 2px 0 0 0;
+    }
+  }
+}
+
+ul.view-choice {
+  position: fixed;
+  bottom: 0px;
+  margin: 0;
+  padding: 0;
+  background-color: @purple;
+  height: 50px;
+  width: 100%;
+  li {
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    padding: 12px 0;
+    cursor: pointer;
+    &.active {
+      cursor: default;
+      border-bottom: 2px solid @white;
+    }
+  }
 }

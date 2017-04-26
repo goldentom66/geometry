@@ -3,11 +3,15 @@ import React, { Component } from 'react'
 
 
 class Subtopic extends Component {
-
+  handleClick() {
+    this.props.actions.completeSubtopic(this.props.currentSubtopic)
+  }
+  
 	render() {
-    const hasSubtopic = this.props.subtopic && this.props.subtopic.index;
-    const subtopicText = <div className='subtopic-text'>{this.props.subtopic.index}. {this.props.subtopic.title}</div>
-    const subtopicComplete = <div className='subtopic-complete'><img src='images/tick-big.png' /></div>
+    const hasSubtopic = this.props.currentSubtopic && this.props.currentSubtopic.index
+    const hasCompleted = this.props.currentSubtopic && this.props.currentSubtopic.completed
+    const subtopicText = <div className='subtopic-text'>{this.props.currentSubtopic.index}. {this.props.currentSubtopic.title}</div>
+    const subtopicComplete = <div className='subtopic-complete'><div className='subtopic-img'><img src='images/tick-big.png' /></div></div>
     
 		return (
 			<div className='subtopic'>
@@ -17,12 +21,14 @@ class Subtopic extends Component {
         <div className='middle'>
           <div className='top'>
             {hasSubtopic && subtopicText}
-            {hasSubtopic && subtopicComplete}
+            {hasCompleted && subtopicComplete}
           </div>
           <div className='bottom'>
-            <button>Let's Go</button>
+          {!hasCompleted &&
+            <div className='btn btn-primary btn-pill'>Let's Go</div>
+          }
           </div>
-         </div>
+        </div>
         <div className='right'>
           <div className='top'></div>
         </div>

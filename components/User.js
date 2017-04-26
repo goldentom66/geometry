@@ -3,12 +3,13 @@ import React, { Component } from 'react'
 
 
 class User extends Component {
-
 	render() {
+    const userAvatar = 'images/' + this.props.user.avatar
+    
 		return (
 			<div className='user'>
-        <img src='' title={this.props.user.username}/>
-        <div className={this.props.user.hasUpdate ? 'udpated' : ''}></div>
+        <img src={userAvatar} title={this.props.user.username} />
+        <div className={this.props.user.hasUpdate ? 'updated' : ''}></div>
       </div>
 		)
 	}

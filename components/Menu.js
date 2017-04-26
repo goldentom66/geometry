@@ -6,7 +6,7 @@ class Menu extends Component {
 
 	render() {
 		return (
-			<div className='menu'></div>
+			<div className='menu'><img src='images/menu.png' /></div>
 		)
 	}
 }
