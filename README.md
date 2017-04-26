@@ -1,2 +1,2 @@
 # geometry
-Test for React + Redux + Webpack
+Test for React + Redux + Bootstrap + Webpack
