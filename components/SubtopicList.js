@@ -19,7 +19,6 @@ class SubtopicList extends Component {
   handleClick(direction) {
     let listRect = this.list.getBoundingClientRect();
     let listWidth = listRect.width;
-    let listCurrentPosition = listRect.left;
     
     let btnLeftRect = this.leftBtn.getBoundingClientRect();
     let slotStart = btnLeftRect.right;
@@ -27,11 +26,21 @@ class SubtopicList extends Component {
     let btnRightRect = this.rightBtn.getBoundingClientRect();
     let slotEnd = btnRightRect.left;
     
-    let totalClicks = Math.ceil(listWidth / ((slotEnd - slotStart) * 3.0 / 4.0));
+    // Calculate the total clicks. 
+    // See the space between the left and right buttons as the slot to fit, 
+    // and the list width as object to move in the slot
+    // Each time it will move 3/4 of the slot to show something new, something old
+    let totalClickableTimes = Math.ceil(listWidth / ((slotEnd - slotStart) * 3.0 / 4.0));
+    
+    // Make sure that the left clicking times always no less than right clicking times
     if (this.state.leftClickedTimes >= this.state.rightClickedTimes 
-        && ((direction < 0 && this.state.leftClickedTimes - this.state.rightClickedTimes < totalClicks - 1) 
-            || (direction > 0 && this.state.rightClickedTimes < this.state.leftClickedTimes))) {
-      let eachClickMove = listWidth / totalClicks;
+    // For clicking left button, make sure that left clicking times is (totalClickableTimes - 1) more than right clicking times
+        && ((direction < 0 && this.state.leftClickedTimes - this.state.rightClickedTimes < totalClickableTimes - 1) 
+    // For clicking right button, no more condition
+            || (direction > 0 && this.state.leftClickedTimes > this.state.rightClickedTimes))) {
+      let eachClickMove = listWidth / totalClickableTimes;
+      
+      // Change margin left to move the list
       let currentMarginLeft = this.list.style["margin-left"];
       let nextMarginLeft = eachClickMove * direction;
       if (currentMarginLeft && currentMarginLeft !== "") {
