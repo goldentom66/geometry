@@ -13,9 +13,23 @@ import ViewChoice from './ViewChoice'
 
 class App extends Component {
   render() {
-    const currentSubtopic = this.props.subtopics.filter((subtopic) => {
-      return subtopic.current
-    })[0];
+    let currentSubtopicIndex = 0;
+    if (this.props.user && this.props.user.session && this.props.user.session.currentSubtopicIndex > 0) {
+      currentSubtopicIndex = this.props.user.session.currentSubtopicIndex;
+    }
+      
+    const currentSubtopics = this.props.subtopics.filter((subtopic) => {
+        return (subtopic.index === currentSubtopicIndex)
+    });
+    
+    let currentSubtopic = null;
+    if (currentSubtopics.length > 0) {
+      currentSubtopic = currentSubtopics[0];
+    }
+    else if(this.props.subtopics.length > 0) {
+      currentSubtopic = this.props.subtopics[0];
+    }
+    
     return (
       <div className='container-fluid no-padding'>
         <header>
@@ -27,7 +41,7 @@ class App extends Component {
         </header>
         <nav>
           <div className='row no-margin'>
-            <SubtopicList subtopics={this.props.subtopics} actions={this.props.actions} />
+            <SubtopicList subtopics={this.props.subtopics} currentSubtopic={currentSubtopic} actions={this.props.actions} />
           </div>
         </nav>
         <main>

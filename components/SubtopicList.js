@@ -28,7 +28,7 @@ class SubtopicList extends Component {
     
     // Calculate the total clicks. 
     // See the space between the left and right buttons as the slot to fit, 
-    // and the list width as object to move in the slot
+    // and the list width as object to move in the slot.
     // Each time it will move 3/4 of the slot to show something new, something old
     let totalClickableTimes = Math.ceil(listWidth / ((slotEnd - slotStart) * 3.0 / 4.0));
     
@@ -65,7 +65,7 @@ class SubtopicList extends Component {
           <ul className='list' ref={(ul) => {this.list = ul;}}>
             {
               this.props.subtopics.map((subtopic) => {
-                  return <SubtopicListItem key={subtopic.index} subtopic={subtopic} actions={this.props.actions} />
+                  return <SubtopicListItem key={subtopic.index} subtopic={subtopic} currentSubtopic={this.props.currentSubtopic} actions={this.props.actions} />
               })
             }
           </ul>

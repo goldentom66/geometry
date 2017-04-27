@@ -12,12 +12,6 @@ let actions = {
       type: 'COMPLETE_SUBTOPIC',
       index: index
     }
-  },
-  
-  moveLeft: function(subtopics) {
-  },
-  
-  moveRight: function(subtopics) {
   }
   
 }
