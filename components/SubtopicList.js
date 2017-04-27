@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import SubtopicListItem from './SubtopicListItem'
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 class SubtopicList extends Component {
 
