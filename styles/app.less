@@ -112,7 +112,7 @@ nav {
   ul.list {
     font-size: 11px;
     white-space: nowrap;
-    padding-top: 2px;
+    padding-top: 4px;
     display: inline-block;
     
     li {
@@ -202,32 +202,26 @@ nav {
   
   .button {
     cursor: pointer;
-    &.inactive {
-      cursor: default;
+    top: 60px;
+    width: 50px;
+    height: 45px;
+    background-color: @pink;
+    padding-top: 10px;
+    margin-top: -10px;
+    position: absolute;
+    
+    &.none {
+      display: none;
     }
     &.left {
       text-align: left;
       padding-left: 20px;
-      top: 58px;
-      width: 50px;
-      height: 45px;
       left: 0px;
-      background-color: @pink;
-      padding-top: 10px;
-      margin-top: -10px;
-      position: absolute;
     }
     &.right {
       text-align: right;
       padding-right: 20px;
-      top: 58px;
-      width: 50px;
-      height: 45px;
       right: 0px;
-      background-color: @pink;
-      padding-top: 10px;
-      margin-top: -10px;
-      position: absolute;
     }
   }
 }
