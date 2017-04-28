@@ -1,5 +1,5 @@
 # geometry
-Test for React + Redux + Bootstrap + Webpack
+Test for React + Redux + Bootstrap & LESS + Webpack
 
 # How to run
 1. If nodejs not installed, please install nodejs first. And then run:
