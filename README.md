@@ -1,5 +1,5 @@
 # geometry
-Frontend Challenge with React, Redux, Webpack, Bootstrap, and Less
+Frontend challenge with React, Redux, Webpack, Bootstrap, and Less
 
 # How to run
 1. If nodejs not installed, please install nodejs first. And then run:
