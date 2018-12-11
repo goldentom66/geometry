@@ -23,6 +23,9 @@ jobs:
       - image: circleci/nodejs:4.8.2-jessie
     steps:
       - checkout
+      - run:
+        name: Test
+        command: ls
   
   workflows:
     version: 2
@@ -30,8 +33,8 @@ jobs:
       jobs:
         - build
         - test:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+            requires:
+              - build
+            filters:
+              branches:
+                only: master
