@@ -20,9 +20,9 @@ jobs:
           
   test:
     docker:
-			- image: circleci/nodejs:4.8.2-jessie
-		steps:
-			- checkout
+      - image: circleci/nodejs:4.8.2-jessie
+    steps:
+      - checkout
   
   workflows:
     version: 2
